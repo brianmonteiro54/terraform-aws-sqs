@@ -1,0 +1,189 @@
+# =============================================================================
+# Terraform .gitignore
+# =============================================================================
+
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Exclude all .tfvars files, which are likely to contain sensitive data
+*.tfvars
+*.tfvars.json
+
+# Ignore override files as they are usually used to override resources locally
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ignore transient lock info files created by terraform apply
+.terraform.tfstate.lock.info
+
+# Include override files you do wish to add to version control using negation pattern
+# !example_override.tf
+
+# Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
+*tfplan*
+
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
+
+# =============================================================================
+# IDE and Editor Files
+# =============================================================================
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+
+# =============================================================================
+# OS Files
+# =============================================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# =============================================================================
+# Security and Secrets
+# =============================================================================
+
+# Ignore files that might contain secrets
+*.pem
+*.key
+*.cert
+*.crt
+id_rsa*
+*.p12
+*.pfx
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# AWS credentials
+.aws/credentials
+
+# =============================================================================
+# Build and Test Files
+# =============================================================================
+
+# Test output
+test_output/
+*.test
+
+# Coverage
+coverage/
+*.coverprofile
+
+# Dependency directories
+node_modules/
+vendor/
+
+# Distribution / packaging
+dist/
+build/
+
+# =============================================================================
+# Documentation Build Files
+# =============================================================================
+
+# Terraform docs
+.terraform-docs.yml
+
+# =============================================================================
+# Logs
+# =============================================================================
+
+*.log
+logs/
+
+# =============================================================================
+# Backup Files
+# =============================================================================
+
+*.bak
+*.backup
+*.old
+*.orig
+
+# =============================================================================
+# Terraform Cloud / Enterprise
+# =============================================================================
+
+# Sentinel runtime directory
+.sentinel
+
+# =============================================================================
+# Misc
+# =============================================================================
+
+# Graph files
+*.png
+*.svg
+graph.*
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Archive files
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
