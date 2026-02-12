@@ -192,7 +192,7 @@ output "connection_info" {
     queue_arn     = aws_sqs_queue.this.arn
     dlq_url       = try(aws_sqs_queue.dlq[0].url, null)
     dlq_arn       = try(aws_sqs_queue.dlq[0].arn, null)
-    region        = data.aws_region.current.name
+    region  = data.aws_region.current.region
     kms_key_id    = local.kms_key_id
     is_fifo_queue = var.fifo_queue
   }
@@ -203,15 +203,15 @@ output "connection_info" {
 # -----------------------------------------------------------------------------
 output "cloudwatch_dashboard_url" {
   description = "URL to CloudWatch dashboard"
-  value       = var.create_cloudwatch_dashboard ? "https://console.aws.amazon.com/cloudwatch/home?region=${data.aws_region.current.name}#dashboards:name=${aws_cloudwatch_dashboard.sqs[0].dashboard_name}" : null
+  value       = var.create_cloudwatch_dashboard ? "https://console.aws.amazon.com/cloudwatch/home?region=${data.aws_region.current.region}#dashboards:name=${aws_cloudwatch_dashboard.sqs[0].dashboard_name}" : null
 }
 
 output "queue_console_url" {
   description = "URL to queue in AWS Console"
-  value       = "https://console.aws.amazon.com/sqs/v2/home?region=${data.aws_region.current.name}#/queues/${urlencode(aws_sqs_queue.this.url)}"
+  value       = "https://console.aws.amazon.com/sqs/v2/home?region=${data.aws_region.current.region}#/queues/${urlencode(aws_sqs_queue.this.url)}"
 }
 
 output "dlq_console_url" {
   description = "URL to DLQ in AWS Console"
-  value       = var.create_dlq ? "https://console.aws.amazon.com/sqs/v2/home?region=${data.aws_region.current.name}#/queues/${urlencode(aws_sqs_queue.dlq[0].url)}" : null
+  value       = var.create_dlq ? "https://console.aws.amazon.com/sqs/v2/home?region=${data.aws_region.current.region}#/queues/${urlencode(aws_sqs_queue.dlq[0].url)}" : null
 }

@@ -157,7 +157,7 @@ resource "aws_cloudwatch_dashboard" "sqs" {
           ]
           view    = "timeSeries"
           stacked = false
-          region  = data.aws_region.current.name
+          region  = data.aws_region.current.region
           title   = "Queue Depth"
           period  = 300
           yAxis = {
@@ -177,7 +177,7 @@ resource "aws_cloudwatch_dashboard" "sqs" {
           ]
           view    = "timeSeries"
           stacked = false
-          region  = data.aws_region.current.name
+          region  = data.aws_region.current.region
           title   = "Message Activity"
           period  = 300
         }
@@ -190,7 +190,7 @@ resource "aws_cloudwatch_dashboard" "sqs" {
           ]
           view    = "timeSeries"
           stacked = false
-          region  = data.aws_region.current.name
+          region  = data.aws_region.current.region
           title   = "Message Age"
           period  = 300
           yAxis = {
@@ -208,7 +208,7 @@ resource "aws_cloudwatch_dashboard" "sqs" {
           ]
           view    = "timeSeries"
           stacked = false
-          region  = data.aws_region.current.name
+          region  = data.aws_region.current.region
           title   = "Polling Efficiency"
           period  = 300
         }
