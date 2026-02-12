@@ -192,7 +192,7 @@ output "connection_info" {
     queue_arn     = aws_sqs_queue.this.arn
     dlq_url       = try(aws_sqs_queue.dlq[0].url, null)
     dlq_arn       = try(aws_sqs_queue.dlq[0].arn, null)
-    region  = data.aws_region.current.region
+    region        = data.aws_region.current.region
     kms_key_id    = local.kms_key_id
     is_fifo_queue = var.fifo_queue
   }
