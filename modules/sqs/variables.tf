@@ -68,7 +68,7 @@ variable "fifo_throughput_limit" {
   default     = null
 
   validation {
-    condition     = var.fifo_throughput_limit == null || contains(["perQueue", "perMessageGroupId"], var.fifo_throughput_limit)
+    condition     = var.fifo_throughput_limit == null || try(contains(["perQueue", "perMessageGroupId"], var.fifo_throughput_limit), false)
     error_message = "FIFO throughput limit must be either 'perQueue' or 'perMessageGroupId'."
   }
 }
