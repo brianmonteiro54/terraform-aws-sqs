@@ -57,7 +57,7 @@ variable "deduplication_scope" {
   default     = null
 
   validation {
-    condition     = var.deduplication_scope == null || contains(["messageGroup", "queue"], var.deduplication_scope)
+    condition     = var.deduplication_scope == null || try(contains(["messageGroup", "queue"], var.deduplication_scope), false)
     error_message = "Deduplication scope must be either 'messageGroup' or 'queue'."
   }
 }
