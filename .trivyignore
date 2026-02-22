@@ -1,0 +1,22 @@
+# =============================================================================
+# Trivy Ignore File
+# Add check IDs here to suppress known/accepted findings.
+# Format: AVD-AWS-XXXX or one ID per line with optional comment.
+# =============================================================================
+
+# KMS key policy requires root account access — this is an AWS requirement
+# for KMS key administration and is already skip-annotated in data.tf.
+AVD-AWS-0065
+AVD-AWS-0066
+
+# SQS queue not using a customer-managed KMS key.
+# The module defaults to creating a CMK (create_kms_key = true).
+# This finding only appears when kms_master_key_id = null, create_kms_key = false,
+# and use_sqs_managed_sse = false (i.e., falling back to the AWS-managed key alias/aws/sqs).
+AVD-AWS-0135
+
+# SQS queue policy allows access without a source ARN condition.
+# The queue policy enforces SSL (enforce_ssl = true by default) and scopes
+# access to the queue owner account. The allowed_services condition is
+# already guarded by aws:SourceArn in policies.tf.
+AVD-AWS-0134
