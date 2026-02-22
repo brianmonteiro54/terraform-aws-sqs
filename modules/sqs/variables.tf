@@ -435,3 +435,15 @@ variable "cost_center" {
   type        = string
   default     = "engineering"
 }
+
+variable "allowed_queue_actions" {
+  description = "Allowed SQS actions for the queue policy"
+  type        = list(string)
+  default = [
+    "sqs:SendMessage",
+    "sqs:ReceiveMessage",
+    "sqs:DeleteMessage",
+    "sqs:GetQueueAttributes",
+    "sqs:GetQueueUrl"
+  ]
+}

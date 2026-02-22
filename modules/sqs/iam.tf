@@ -121,9 +121,7 @@ data "aws_iam_policy_document" "full_access" {
     sid    = "AllowSQSFullAccess"
     effect = "Allow"
 
-    actions = [
-      "sqs:*"
-    ]
+    actions = var.allowed_queue_actions
 
     resources = [
       aws_sqs_queue.this.arn
@@ -157,9 +155,7 @@ data "aws_iam_policy_document" "full_access" {
       sid    = "AllowDLQAccess"
       effect = "Allow"
 
-      actions = [
-        "sqs:*"
-      ]
+      actions = var.allowed_queue_actions
 
       resources = [
         aws_sqs_queue.dlq[0].arn

@@ -18,9 +18,7 @@ data "aws_iam_policy_document" "queue_policy" {
       identifiers = [data.aws_caller_identity.current.account_id]
     }
 
-    actions = [
-      "sqs:*"
-    ]
+    actions = var.allowed_queue_actions
 
     resources = [
       aws_sqs_queue.this.arn
@@ -87,10 +85,8 @@ data "aws_iam_policy_document" "queue_policy" {
         identifiers = ["*"]
       }
 
-      actions = [
-        "sqs:*"
-      ]
-
+    actions = var.allowed_queue_actions
+      
       resources = [
         aws_sqs_queue.this.arn
       ]
@@ -126,10 +122,8 @@ data "aws_iam_policy_document" "dlq_policy" {
       identifiers = [data.aws_caller_identity.current.account_id]
     }
 
-    actions = [
-      "sqs:*"
-    ]
-
+    actions = var.allowed_queue_actions
+    
     resources = [
       aws_sqs_queue.dlq[0].arn
     ]
@@ -147,10 +141,8 @@ data "aws_iam_policy_document" "dlq_policy" {
         identifiers = ["*"]
       }
 
-      actions = [
-        "sqs:*"
-      ]
-
+    actions = var.allowed_queue_actions
+      
       resources = [
         aws_sqs_queue.dlq[0].arn
       ]
